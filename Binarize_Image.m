@@ -1,5 +1,5 @@
 close all; 
-FileID=fopen(sprintf('20170104L_60_off_1_201701_1343.dat'),'r'); %input file
+FileID=fopen(sprintf(''),'r'); %input file
 Pixels=1048576; % # of pixels/image subject to change
 frames=1; % # of frame fix to 1
 N = [1024 1024 frames]; % structure of data
@@ -24,7 +24,7 @@ for l=1:10 % Each loop will proccess 2000 images
     end
     ji=ji+2000; % To process next 2000 image
     jf=jf+2000; % same as above
-    FileName = ['20170104L_60_off_1_201701_1343' num2str(l,'%03u') '.mat'];
+    FileName = ['' num2str(l,'%03u') '.mat']; % output file name
     save(FileName,'BI');
     
 end
