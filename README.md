@@ -1,2 +1,4 @@
 # P-LIF
-Analysis Code
+Analysis Code for LIF
+Binarize and Phase Mean
+
