@@ -1,3 +1,6 @@
+% Code to determine the region for binarization
+% Sujoy created 2017/10
+
 close all; clear BI;
 fid2=fopen(sprintf(''),'r'); % Input File
 X_Pixels = 1024;
