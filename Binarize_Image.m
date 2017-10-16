@@ -1,8 +1,10 @@
-close all; 
-FileID=fopen(sprintf(''),'r'); %input file
-Pixels=1048576; % # of pixels/image subject to change
+close all; clear BI; 
+FileID = fopen(sprintf(''),'r'); %input file
+X_Pixels = 1024;
+Y_Pixels = 1024;
+Pixels = X_Pixels*Y_Pixels; % # of total pixels/image 
 frames=1; % # of frame fix to 1
-N = [1024 1024 frames]; % structure of data
+N = [X_Pixels Y_Pixels frames]; % structure of data
 I=zeros(Pixels,frames,'uint16'); % Pre make the matrix to hold the image
 BI=zeros(301,321,2000); % Pre make output matrix
 ji=1; % initial image
