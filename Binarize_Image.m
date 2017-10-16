@@ -1,3 +1,6 @@
+%Code for Binarizing large number of image(Intended for .mraw).
+%Sujoy  created 2017/10
+
 close all; clear BI; 
 FileID = fopen(sprintf(''),'r'); %input file
 X_Pixels = 1024;
