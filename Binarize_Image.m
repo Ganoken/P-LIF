@@ -16,7 +16,7 @@ for l=1:10 % Each loop will proccess 2000 images
     for j=ji:jf
         first_frame=j;
         fseek(FileID,(first_frame-1)*Pixels*2,'bof');
-        I(:,n)=(fread(FileID,Pixels,'uint16'));
+        I(:,1)=(fread(FileID,Pixels,'uint16'));
         RawImages=permute(reshape(I,N),[2 1]);
         ImageData = RawImages(400:700,480:800);
         %level = graythresh(ImageData); % to obtain the th value
