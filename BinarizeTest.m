@@ -1,13 +1,12 @@
 % Code to determine the region for binarization
 % Sujoy created 2017/10
 
-close all; clear BI;
+close all; clear BW;
 fid2=fopen(sprintf(''),'r'); % Input File
 X_Pixels = 1024;
 Y_Pixels = 1024;
 Pixels = X_Pixels*Y_Pixels; % # of total pixels
 first_frame=1; % The specific Image you want to look at
-frames=1;
 fseek(fid2,(first_frame-1)*Pixels*2,'bof');
 I=zeros(Pixels,1,'uint16');
 I(:,1)=(fread(fid2,Pixels,'uint16'));

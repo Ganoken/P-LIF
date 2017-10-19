@@ -24,10 +24,8 @@ for l=1:10 % Each loop will proccess 2000 images
         fseek(FileID,(first_frame-1)*Pixels*2,'bof');
         I(:,1)=(fread(FileID,Pixels,'uint16'));
         RawImages=permute(reshape(I,N),[2 1]);
-        ImageData = RawImages(400:700,480:800);
-        %level = graythresh(ImageData); % to obtain the th value
-        %BI(:,:,s) = imbinarize(ImageData,level);
-        BinarizeImage(:,:,s) = imbinarize(ImageData);
+        %level(:,s) = graythresh(RawImages(400:700,480:800)); % to obtain the th value
+        BinarizeImage(:,:,s) = imbinarize(RawImages(400:700,480:800));
         s=s+1;
     end
     ji=ji+2000; % To process next 2000 image
