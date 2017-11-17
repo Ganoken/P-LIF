@@ -20,13 +20,11 @@ jf=2000; % end image for first run
 for l=1:10 % Each loop will proccess 2000 images 
     %s=1; % ID for store
     for j=ji:jf
-        first_frame=j;
-        fseek(FileID,(first_frame-1)*Pixels*2,'bof');
+        fseek(FileID,(j-1)*Pixels*2,'bof');
         I(:,1)=(fread(FileID,Pixels,'uint16'));
         RawImages=permute(reshape(I,N),[2 1]);
         %level(:,s) = graythresh(RawImages(400:700,480:800)); % to obtain the th value
         BinarizeImage(:,:,j-((l-1)*2000)) = imbinarize(RawImages(400:700,480:800));
-        %s=s+1;
     end
     ji=ji+2000; % To process next 2000 image
     jf=jf+2000; % same as above
