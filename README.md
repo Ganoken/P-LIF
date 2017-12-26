@@ -15,6 +15,6 @@ Set the 'MinPeakDistance' of findpeaks as desired. Also change the input file na
 _Do not clear the variables as it will be used in next step._  
 
 Finally run the PhaseMean.m. Set the input and output file name.  
-Set the size of your image for  MeanImage and PhaseImage.  
+Set the size of your image for MeanImage and PhaseImage.  
 
 
