@@ -17,4 +17,4 @@ _Do not clear the variables as it will be used in next step._
 Finally run the PhaseMean.m. Set the input and output file name.  
 Set the size of your image for MeanImage and PhaseImage.  
 
-
+Use showresult.m to save the result as an image.
