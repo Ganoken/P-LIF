@@ -2,7 +2,7 @@
 %Sujoy 2017/11
  
 Phase = zeros ((length(TimeUse)-1),2,PhaseDivision,'uint16'); %contains the position and # of images for certain phase 
-pos = 1; %Psition of image
+pos = 1; %Position of image
 ImageTimeVector = 0:1/10000:2-(1/10000); %Time vector for camera image used as the position
 
 s=1;
