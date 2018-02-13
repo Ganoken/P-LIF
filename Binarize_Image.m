@@ -33,5 +33,6 @@ end
 %Save
 FileName = ['.mat']; % output file name
 save(FileName,'BinarizeImage');  
+
 %finish up
 fclose(FileID); % close file

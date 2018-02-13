@@ -1,6 +1,7 @@
 %Find peaks and make time stamp for phase mean
 %
 %Sujoy created 2017/10
+%!Check: length of 'TimeUse' , it may not need the last data point.
 
 %% initialize and load data
 Frequency = 100e3;%kHz sampling freq
@@ -34,18 +35,18 @@ FilteredData2 = ApplyFilter (filter2,FilteredData1); % increase as many times de
 %% caution temporary 
 
 CleanedTimeStamps = TimeStamps(15:end); %Temp later 15 is valid for specific data
-ShiftedTime = CleanedTimeStamps -TimeStamps(1,15);
+ShiftedTime = CleanedTimeStamps -TimeStamps(1,15); % shift the zero 
 TimeUse = ShiftedTime(1:1+nnz(ShiftedTime < 2)); % Need 2 sec in this case 
 
 
 %% generate the time vector for phase mean
 s=1;
-PhaseTimeStamps =zeros((length(TimeUse)-1)*PhaseDivision,1);
-for j =1:PhaseDivision:((length(TimeUse)-1)*PhaseDivision)
+PhaseTimeStamps =zeros((length(TimeUse)-1)*PhaseDivision,1); % Premake the vector
+for j =1:PhaseDivision:((length(TimeUse)-1)*PhaseDivision) % put the time of the peaks
     PhaseTimeStamps(j) = TimeUse(1,s);
-    PhaseDuration = (TimeUse(1,s+1)-TimeUse(1,s))/PhaseDivision;
+    PhaseDuration = (TimeUse(1,s+1)-TimeUse(1,s))/PhaseDivision; % find the time duration between each phase 
     for k = 1:PhaseDivision-1
-        PhaseTimeStamps(j+k) = PhaseTimeStamps(j+k-1)+PhaseDuration;
+        PhaseTimeStamps(j+k) = PhaseTimeStamps(j+k-1)+PhaseDuration; % fill the remaining phase time 
         if PhaseTimeStamps(j+k) >= 2
             break
         end
