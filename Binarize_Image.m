@@ -27,7 +27,7 @@ for j=ji:jf
     I=(fread(FileID,Pixels,'uint16')); % load the image data 
     RawImages=permute(reshape(I,N),[2 1]); % Organize 
     %level(:,j) = graythresh(RawImages(400:700,480:800)); % to obtain the value
-    BinarizeImage(:,:,j-((l-1)*2000)) = imbinarize(RawImages(400:700,480:800)); 
+    BinarizeImage(:,:,j) = imbinarize(RawImages(400:700,480:800)); 
 end
 
 %Save
