@@ -8,7 +8,7 @@ close all; clear BinarizeImage;
 FileID = fopen(sprintf(''),'r'); %input file
 
 %Set parameters
-X_Pixels = 1024;
+X_Pixels = 1024; % Based on camera
 Y_Pixels = 1024;
 Pixels = X_Pixels*Y_Pixels; % # of total pixels/image 
 N = [X_Pixels Y_Pixels]; % structure of data
@@ -23,11 +23,11 @@ jf=20000; % end image
 
 %main loop   
 for j=ji:jf
-    fseek(FileID,(j-1)*Pixels*2,'bof');
-    I=(fread(FileID,Pixels,'uint16'));
-    RawImages=permute(reshape(I,N),[2 1]);
-    %level(:,j) = graythresh(RawImages(400:700,480:800)); % to obtain the th value
-    BinarizeImage(:,:,j-((l-1)*2000)) = imbinarize(RawImages(400:700,480:800));
+    fseek(FileID,(j-1)*Pixels*2,'bof'); % find the start point 
+    I=(fread(FileID,Pixels,'uint16')); % load the image data 
+    RawImages=permute(reshape(I,N),[2 1]); % Organize 
+    %level(:,j) = graythresh(RawImages(400:700,480:800)); % to obtain the value
+    BinarizeImage(:,:,j-((l-1)*2000)) = imbinarize(RawImages(400:700,480:800)); 
 end
 
 %Save
