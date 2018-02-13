@@ -3,19 +3,24 @@
 
 %Initialize
 close all; clear BinarizeImage;
+
 %Load Data 
 FileID = fopen(sprintf(''),'r'); %input file
+
 %Set parameters
 X_Pixels = 1024;
 Y_Pixels = 1024;
 Pixels = X_Pixels*Y_Pixels; % # of total pixels/image 
 N = [X_Pixels Y_Pixels]; % structure of data
+
 %Generate needed matrix
 I=zeros(Pixels,1,'uint16'); % Pre make the matrix to hold the image
 BinarizeImage=zeros(301,321,2000); % Pre make output matrix
+
 %Set up loop parameters
 ji=1; % initial image
 jf=2000; % end image for first run
+
 %main loop
 for l=1:10 % Each loop will proccess 2000 images 
     %s=1; % ID for store
@@ -31,5 +36,6 @@ for l=1:10 % Each loop will proccess 2000 images
     FileName = ['' num2str(l,'%03u') '.mat']; % output file name
     save(FileName,'BinarizeImage');  
 end
+
 %finish up
 fclose(FileID); % close file
